@@ -33,6 +33,14 @@ def create_database():
     cursor.close()
     conn.close()
 
+    conn = psycopg2.connect(
+        dbname=os.getenv('HH_DB_NAME'),
+        user=os.getenv('HH_DB_USER'),
+        password=os.getenv('HH_DB_PASSWORD'),
+        host=os.getenv('HH_DB_HOST')
+    )
+    conn.close()
+
 
 def create_table_employer_company():
     """ Создание таблицы работодатели """
